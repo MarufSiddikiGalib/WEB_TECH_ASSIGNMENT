@@ -1,3 +1,8 @@
+<?php 
+include('../model/dbcon.php');  
+include('../control/transaction.php');  
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,16 +10,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Holder Dashboard</title>
     <link rel="stylesheet" href="../css/stylesfordetails.css">
+
+    
+    
+
+    
 </head>
 <body>
+ 
     <fieldset>
+        <a href="../control/logout_process.php" class="btn btn-danger">Logout</a>
         <h1 id="acholder">Account Holder Dashboard</h1>
-
+        
         <div>
             <h3>Account Details</h3>
-            <p><strong>Account Number:</strong></p>
-            <p><strong>Account Type:</strong></p>
-            <p><strong>Balance:</strong></p>
+            <p>Account Name: <?php echo $accountDetails['name']; ?> </p>
+            <p>Account Type: <?php echo $accountDetails['type']; ?> </p>
+            <p>Balance: BDT <?php echo $accountDetails['deposit']; ?> </p>
         </div>
 
         <div>
@@ -43,10 +55,20 @@
 
         <div>
             <h3>Add Money</h3>
-            <label for="amount">Amount: </label>
-            <input type="text" id="amount" name="amount">
-            <br><br>
-            <button onclick="addMoney()" id="addMoney">Add Money</button>
+            <form action="../control/transaction.php" method="POST">
+
+                <?php
+            if(isset($_GET['add_msg'])){
+
+              echo "<h4 class='text-danger'>" . htmlspecialchars($_GET['add_msg']) . "</h4>";
+            }
+            ?>
+
+                <label for="amount">Amount: </label>
+                <input type="text" id="amount" name="amount" required>
+                <br><br>
+                <button type="submit" name="add_money" id="addMoney">Add Money</button>
+            </form>
         </div>
 
         <div>
@@ -70,5 +92,6 @@
             
         }
     </script>
+    
 </body>
 </html>

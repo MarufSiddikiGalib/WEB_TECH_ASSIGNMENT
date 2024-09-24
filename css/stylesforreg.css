@@ -9,7 +9,7 @@ h1{
     text-align: center;
 }
 
-input[type="text"], input[type="number"], textarea, select{
+input[type="text"], input[type="number"], input[type="password"] , textarea, select{
     width: 80%;
     padding: 10px;
     margin-bottom: 5px;

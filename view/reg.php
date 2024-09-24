@@ -1,3 +1,8 @@
+<?php 
+include('../control/insert.php'); 
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +14,7 @@
 <body>
     <h1>Bank Account Opening Form</h1>
 
-    <form action="details.html" method="post">
+    <form action="" method="post">
         <label for="cname">Customer Name:</label>
         <br>
         <input type="text" id="cname" name="customer_name" required>
@@ -34,17 +39,41 @@
         </select>
         <br><br>
 
+
+        <label for="username">username:</label>
+        <br>
+        <input type="text" id="username" name="username" required>
+        <br><br>
+
+
+        <label for="password">password:</label>
+        <br>
+        <input type="password" id="pass" name="password" required>
+        <br><br>
+
+
+        <label for="confirm_password">Confirm password:</label>
+        <br>
+        <input type="password" id="confirm_password" name="confirm_password" required>
+        <br><br>
+
+
+
         <label for="indeposit">Initial Deposit:</label>
         <br>
-        <input type="number" id="indeposit" name="initial_deposit" required>
+        <input type="text" id="indeposit" name="initial_deposit" required>
         <br><br>
 
         <label for="pdoc">Identity Proof:</label>
         <br>
-        <input type="file" id="pdoc" name="identity_proof" required>
+        <input type="file" id="pdoc" name="identity_proof" >
         <br><br>
 
-        <input type="submit" id="oasubmit" value="Open Account">
+        <input type="submit" name = "user_reg" id="oasubmit" value="Open Account">
+
     </form>
+
+
+
 </body>
 </html>
