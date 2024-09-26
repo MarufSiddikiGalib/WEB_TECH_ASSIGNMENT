@@ -18,7 +18,7 @@
 
   
 
-  // Get message from url. message threw from insert.php
+  // Get message from url. 
   if(isset($_GET['success_msg'])){
 
    echo "<h6 class='text-danger'>" . htmlspecialchars($_GET['success_msg']) . "</h6>";

@@ -19,8 +19,8 @@ session_start();
        if (isset($_POST['admin_login'])){ 
 
         //take inputs from form using post method
-      $username = $_POST['username'];
-      $password = $_POST['password'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
        
 
        //Select login info from database using my sql query
@@ -29,7 +29,7 @@ session_start();
        
        
       
-      //Executing the query
+       //Executing the query
        $result = mysqli_query($conn, $query);
 
        if(!$result){

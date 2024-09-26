@@ -72,15 +72,26 @@ include('../control/transaction.php');
         </div>
 
         <div>
-            <h3>Transfer Money</h3>
-            <label for="rcpAcc">Recipient Account:</label>
-            <input type="text" id="rcpAcc" name="rcpAcc">
-            <br><br>
-            <label for="trnsfrAcc">Transfer Amount:</label>
-            <input type="text" id="trnsfrAcc" name="trnsfrAcc">
-            <br><br>
-            <button onclick="transferMoney()" id="trnsfrMoney">Transfer Money</button>
-        </div>
+        <h3>Transfer Money</h3>
+         <form action="../control/transaction.php" method="POST">
+
+         <?php
+            if(isset($_GET['add_msg2'])){
+
+              echo "<h4 class='text-danger'>" . htmlspecialchars($_GET['add_msg2']) . "</h4>";
+            }
+            ?>
+
+
+        <label for="rcpAcc">Recipient Account:</label>
+        <input type="text" id="rcpAcc" name="rcpAcc" required>
+        <br><br>
+        <label for="trnsfrAcc">Transfer Amount:</label>
+        <input type="text" id="trnsfrAcc" name="trnsfrAcc" required>
+        <br><br>
+        <button type="submit" name="transfer_money" id="trnsfrMoney">Transfer Money</button>
+    </form>
+</div>
     </fieldset>
 
     <script>

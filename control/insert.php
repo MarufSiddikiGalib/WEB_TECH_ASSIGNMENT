@@ -16,7 +16,21 @@ if (isset($_POST['user_reg'])){
     $password = $_POST["password"];
     $confirm_password = $_POST["confirm_password"];
     $deposit = $_POST["initial_deposit"];
-    $file = $_POST["file"];
+    
+
+
+      // Image upload 
+      $targetDir = "../images/"; // Directory to upload files
+      $fileName = basename($_FILES["identity_proof"]["name"]);
+      $targetFilePath = $targetDir . $fileName;
+      $fileType = strtolower(pathinfo($targetFilePath, PATHINFO_EXTENSION));
+  
+      // Allowed file types
+      $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
+  
+      if (in_array($fileType, $allowedTypes)) {
+          // Upload file to server
+          if (move_uploaded_file($_FILES["identity_proof"]["tmp_name"], $targetFilePath)) {
     
 
         //Hashing the password before storing it
@@ -43,6 +57,13 @@ if (isset($_POST['user_reg'])){
      exit;
    }
 
+ 
+    } else {
+        die("Error uploading the file.");
+    }
+       } else {
+            die("Invalid file type. Only JPG, JPEG, PNG, and GIF are allowed.");
+        }
 
 
 }

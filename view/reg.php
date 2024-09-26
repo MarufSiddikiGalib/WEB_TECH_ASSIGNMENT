@@ -14,7 +14,7 @@ include('../control/insert.php');
 <body>
     <h1>Bank Account Opening Form</h1>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <label for="cname">Customer Name:</label>
         <br>
         <input type="text" id="cname" name="customer_name" required>
